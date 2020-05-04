@@ -1,6 +1,6 @@
 interface Mobile_App {
 
-    abstract public void start(String device);
+    abstract public void start();
 
     abstract public void play();
 
@@ -11,8 +11,8 @@ class Mobile_App_Android implements Mobile_App {
     public String version = "1.1v";
 
     @Override
-    public void start(final String device) {
-        System.out.print("Starting " + device + " Application...\n");
+    public void start() {
+        System.out.print("Starting Android Application...\n");
     }
 
     @Override
@@ -30,8 +30,8 @@ class Mobile_App_IOS implements Mobile_App {
     public String version = "1.1v";
 
     @Override
-    public void start(final String device) {
-        System.out.print("Starting " + device + " Application...\n");
+    public void start() {
+        System.out.print("Starting IOS Application...\n");
     }
 
     @Override
@@ -56,8 +56,8 @@ class Mobile_App_Android_v1 extends Mobile_App_Android {
         System.out.println("Android version " + version);
     }
 
-    public void sound(String device) {
-        System.out.print("Playing " + device + " sounds\n");
+    public void sound() {
+        System.out.print("Playing Android sounds\n");
     }
 }
 
@@ -71,24 +71,24 @@ class Mobile_App_IOS_v1 extends Mobile_App_IOS {
         System.out.print("IOS version " + version + " \n");
     }
 
-    public void sound(String device) {
-        System.out.print("Playing " + device + " sounds\n");
+    public void sound() {
+        System.out.print("Playing IOS sounds\n");
     }
 }
 
 class Bridge_Problem {
     public static void main(final String[] args) {
         Mobile_App_Android_v1 androidVersion = new Mobile_App_Android_v1();
-        androidVersion.start("Android");
+        androidVersion.start();
         androidVersion.version();
         androidVersion.play();
-        androidVersion.sound("Android");
+        androidVersion.sound();
         androidVersion.exit();
         Mobile_App_IOS_v1 iosVersion = new Mobile_App_IOS_v1();
-        iosVersion.start("IOS");
+        iosVersion.start();
         iosVersion.version();
         iosVersion.play();
-        iosVersion.sound("IOS");
+        iosVersion.sound();
         iosVersion.exit();
     }
 

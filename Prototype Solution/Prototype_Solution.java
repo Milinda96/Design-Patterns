@@ -14,7 +14,7 @@ abstract class Button implements Cloneable {
         Object clone = null;
         try {
             clone = super.clone();
-        } catch (final CloneNotSupportedException e) {
+        } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
         return clone;
@@ -23,8 +23,8 @@ abstract class Button implements Cloneable {
 
 class Button_Prototype extends Button {
     public Button_Prototype() {
-        this.color = "red";
-        this.name = "click";
+        color = "red";
+        name = "click";
     }
 
     @Override
@@ -43,23 +43,22 @@ class ButtonData {
 
     private static Map<String, Button> buttonMap = new HashMap<String, Button>();
 
+    public static Button getColor(String color) {
+        return (Button) buttonMap.get(color).clone();
+    }
+
+    public static Button getName(String name) {
+        return (Button) buttonMap.get(name).clone();
+    }
+
     static {
         buttonMap.put("red", new Button_Prototype());
         buttonMap.put("click", new Button_Prototype());
     }
-
-    public static Button getColor(final String color) {
-        return (Button) buttonMap.get(color).clone();
-    }
-
-    public static Button getName(final String name) {
-        return (Button) buttonMap.get(name).clone();
-    }
 }
 
-// Driver class
 class Prototype {
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         ButtonData.getName("click").setName();
         ButtonData.getColor("red").setColor();
     }
