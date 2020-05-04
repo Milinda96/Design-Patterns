@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-interface MobileApp {
+interface Mobile_App {
 
     abstract public void start(String device);
 
@@ -9,12 +7,12 @@ interface MobileApp {
     abstract public void exit();
 }
 
-class AndroidApp implements MobileApp {
+class Mobile_App_Android implements Mobile_App {
     public String version = "1.1v";
 
     @Override
     public void start(final String device) {
-        System.out.print("Starting" + device + "Application...\n");
+        System.out.print("Starting " + device + " Application...\n");
     }
 
     @Override
@@ -24,11 +22,11 @@ class AndroidApp implements MobileApp {
 
     @Override
     public void exit() {
-        System.out.print("Exit Android Application: \n");
+        System.out.print("Exit Android Application...\n\n");
     }
 }
 
-class IOSApp implements MobileApp {
+class Mobile_App_IOS implements Mobile_App {
     public String version = "1.1v";
 
     @Override
@@ -43,14 +41,14 @@ class IOSApp implements MobileApp {
 
     @Override
     public void exit() {
-        System.out.print("Exit IOS Application: \n");
+        System.out.print("Exit IOS Application...");
     }
 
 }
 
-class AndroidVersion extends AndroidApp {
+class Mobile_App_Android_v1 extends Mobile_App_Android {
 
-    protected AndroidVersion() {
+    protected Mobile_App_Android_v1() {
         super();
     }
 
@@ -58,55 +56,40 @@ class AndroidVersion extends AndroidApp {
         System.out.println("Android version " + version);
     }
 
-    public String sound(String device) {
-        return "Playing " + device + " sounds";
+    public void sound(String device) {
+        System.out.print("Playing " + device + " sounds\n");
     }
 }
 
-class IOSVersion extends IOSApp {
+class Mobile_App_IOS_v1 extends Mobile_App_IOS {
 
-    protected IOSVersion() {
+    protected Mobile_App_IOS_v1() {
         super();
     }
 
     public void version() {
-        System.out.print("IOS version \n" + version);
+        System.out.print("IOS version " + version + " \n");
     }
 
-    public String sound(String device) {
-        return "Playing " + device + " sounds";
+    public void sound(String device) {
+        System.out.print("Playing " + device + " sounds\n");
     }
 }
 
 class Bridge_Problem {
     public static void main(final String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter your device? Android / IOS: \n");
-        String device = input.nextLine();
-        switch (device.toLowerCase()) {
-            case "android": {
-                AndroidVersion androidVersion = new AndroidVersion();
-                androidVersion.start(device);
-                androidVersion.version();
-                androidVersion.play();
-                androidVersion.sound(device);
-                androidVersion.exit();
-                break;
-            }
-            case "ios": {
-                IOSVersion iosVersion = new IOSVersion();
-                iosVersion.start(device);
-                iosVersion.version();
-                iosVersion.play();
-                iosVersion.sound(device);
-                iosVersion.exit();
-                break;
-            }
-            default: {
-                System.out.println("Wrong Device.");
-                break;
-            }
-        }
-
+        Mobile_App_Android_v1 androidVersion = new Mobile_App_Android_v1();
+        androidVersion.start("Android");
+        androidVersion.version();
+        androidVersion.play();
+        androidVersion.sound("Android");
+        androidVersion.exit();
+        Mobile_App_IOS_v1 iosVersion = new Mobile_App_IOS_v1();
+        iosVersion.start("IOS");
+        iosVersion.version();
+        iosVersion.play();
+        iosVersion.sound("IOS");
+        iosVersion.exit();
     }
+
 }
