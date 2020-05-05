@@ -11,52 +11,52 @@ class Button {
 
 }
 
-class Button_Prototype1 extends Button {
-    public Button_Prototype1() {
+class Button1 extends Button {
+    public Button1() {
         this.color = "Light Blue";
         this.name = "Click1";
     }
 
     @Override
     public void setColor() {
-        System.out.println("Button Prototype1 Color: " + this.color);
+        System.out.println("Button1 Color: " + this.color);
     }
 
     @Override
     public void setName() {
-        System.out.println("Button Prototype1 Name: " + this.name);
+        System.out.println("Button1 Name: " + this.name);
     }
 
 }
 
-class Button_Prototype2 extends Button {
+class Button2 extends Button {
 
-    public Button_Prototype2() {
+    public Button2() {
         this.color = "Gray";
         this.name = "Click2";
     }
 
     @Override
     public void setColor() {
-        System.out.println("Button Prototype2 Color: " + this.color);
+        System.out.println("Button2 Color: " + this.color);
     }
 
     @Override
     public void setName() {
-        System.out.println("Button Prototype2 Name: " + this.name);
+        System.out.println("Button2 Name: " + this.name);
     }
 }
 
 class Prototype {
     public static void main(String[] args) {
 
-        Button button_Prototype1 = new Button_Prototype1();
-        Button button_Prototype2 = new Button_Prototype2();
+        Button button1 = new Button1();
+        Button button2 = new Button2();
 
-        button_Prototype1.setColor();
-        button_Prototype1.setName();
-        button_Prototype2.setColor();
-        button_Prototype2.setName();
+        button1.setColor();
+        button1.setName();
+        button2.setColor();
+        button2.setName();
 
     }
 }
