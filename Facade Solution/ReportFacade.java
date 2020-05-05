@@ -1,5 +1,8 @@
 public class ReportFacade {
+   
     public static void generateReport(Type type) {
+        String data="custom report";
+       
         if (type == null) {
             // throw exception
         }
@@ -8,7 +11,7 @@ public class ReportFacade {
 
         report.setHeader(new Header());
         report.setFooter(new Footer());
-        report.setContent(new Content());
+        report.setContent(data);
 
         // Generate report
         ReportGenerator generator = new ReportGenerator();

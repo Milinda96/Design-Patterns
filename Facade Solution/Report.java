@@ -1,7 +1,7 @@
 public class Report {
 
     private Header header;
-    private Content data;
+    private String data;
     private Footer footer;
     private Type type;
 
@@ -14,13 +14,13 @@ public class Report {
         System.out.println("Set Report Header");
     }
 
-    public Content getContent() {
+    public String getContent() {
         return data;
     }
 
-    public void setContent(Content data) {
+    public void setContent(String data) {
         this.data = data;
-        System.out.println("Set Report Data");
+        System.out.println("Set Report Data:"+ this.data);
     }
 
     public Footer getFooter() {

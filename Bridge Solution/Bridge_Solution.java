@@ -57,7 +57,6 @@ abstract class Base_Version {
 
 	abstract public void play();
 
-	abstract public void sounds();
 
 	abstract public void getVersion();
 
@@ -96,10 +95,10 @@ class Version extends Base_Version {
 
 }
 
-class BridgePattern {
+ class BridgePattern {
 	public static void main(String[] args) {
-		Base_Version android = new Version("1.1V", new Android());
-		Base_Version ios = new Version("1.1v", new IOS());
+		Version android = new Version("1.1V", new Android());
+		Version ios = new Version("1.1v", new IOS());
 		System.out.println("Enter the device? Android / IOS");
 		String device = new Scanner(System.in).nextLine();
 		switch (device.toLowerCase()) {
